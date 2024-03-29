@@ -1,0 +1,60 @@
+.side-container {
+  background-color:#000435 !important;
+  display: grid;
+  grid-template-rows: 1fr;
+  height: 100vh;
+}
+.sub-Menu{
+  color: grey;
+  justify-self: stretch;
+
+}
+.main-title{
+  color: white;
+  display: flex;
+
+ 
+
+}
+.sub-Menu-active{
+  background-color: lightblue !important;
+  color: white !important;
+  border-radius: 6px;
+  padding: 0% !important;
+
+}
+.left-Menu-items{
+margin-block-start: 32px !important; 
+
+padding: 12px 12px;
+border-radius: 40;
+outline: 40;
+}
+
+
+
+.router-container {
+  display: flex;
+  height: 100vh; /* Ensure the container takes up the full viewport height */
+}
+
+.sidebar-container {
+  flex: 0 0 auto; /* Allow the sidebar to take its natural width */
+  width: 250px; /* Set the width of the sidebar */
+  background-color: #f0f0f0; /* Example background color for the sidebar */
+  border-right: 1px solid #ccc; /* Example border to separate sidebar from content */
+}
+
+.content-container {
+
+  flex: 1; /* Allow the content to expand to fill remaining space */
+  padding: 20px; /* Add padding to the content */
+}
+.dashboard-container{
+
+  display: flex;
+
+}
+.charts{
+  display: flex;
+}

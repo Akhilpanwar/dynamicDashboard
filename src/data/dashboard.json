@@ -1,0 +1,33 @@
+{
+    "data":[{
+        "id":"0",
+        "name":"Earning",
+        "value":"$198K",
+        "increment":"37.8%",
+        "decrement":"0",
+        "tenure":"month"
+
+    },{
+        "id":"1",
+        "name":"orders",
+        "value":"$2.4K",
+        "increment":"0",
+        "decrement":"2%",
+        "tenure":"month"
+    },
+    {
+        "id":"2",
+        "name":"Balance",
+        "value":"$2.4K",
+        "increment":"0",
+        "decrement":"2%",
+        "tenure":"month"
+    },{
+        "id":"3",
+        "name":"Total Sales",
+        "value":"$89K",
+        "increment":"37.8%",
+        "decrement":"11",
+        "tenure":"week"
+    }]
+}

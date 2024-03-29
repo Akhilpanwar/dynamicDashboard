@@ -1,0 +1,44 @@
+
+
+{"paths":[{
+
+
+    "id":0,
+    "link":"/",
+    "element":"DashBoard",
+    "icon":  "TbSquareKey"
+},
+{
+    "id":1,
+    "link":"/Products",
+    "element":"Products",
+    "icon":"FaDiceD6"
+},
+{
+    "id":2,
+    "link":"/Customers",
+    "element":"Customers",
+    "icon":"LuUserSquare2"
+},{
+    
+        "id":3,
+        "link":"/Income",
+        "element":"Income",
+        "icon":"LuUserSquare2"
+    
+},{
+
+        "id":4,
+        "link":"/Promote",
+        "element":"Promote",
+        "icon":"BiSolidOffer"
+    },
+    {
+        "id":5,
+        "link":"/Help",
+        "element":"Help",
+        "icon":"MdOutlineLiveHelp"
+    }
+
+]
+}

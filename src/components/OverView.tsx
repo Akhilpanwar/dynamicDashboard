@@ -7,7 +7,7 @@ const YearlyBarChart = () => {
   const monthName = date.toLocaleString("default", { month: "short" });
 
   return (
-    <BarChart width={600} height={200} data={earning.barData}>
+    <BarChart width={700} height={200} data={earning.barData}>
       <CartesianGrid
         strokeDasharray="3 3"
         stroke="transparent"

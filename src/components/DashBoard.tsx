@@ -10,6 +10,8 @@ import { TbDatabasePlus } from "react-icons/tb";
 import { FcSalesPerformance } from "react-icons/fc";
 import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 import YearlyGraph from "./OverView";
+import CustomersPieChart from "./CustomersPieChart";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -17,6 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: "center",
   color: theme.palette.text.secondary,
 }));
+
 const DashBoard: React.FC = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -27,9 +30,8 @@ const DashBoard: React.FC = () => {
             <Grid item xs={3} key={val.id}>
               <Item>
                 <Box
-                  height={60}
+                  height={90}
                   width={100}
-                  my={3}
                   display="flex"
                   alignItems="center"
                   style={{ boxShadow: "0px 0px 0px 0px !important" }}
@@ -77,37 +79,35 @@ const DashBoard: React.FC = () => {
         })}
 
         <Grid item xs={7.9}>
-          <Item>
-            <Box
-              height={133}
-              width={700}
-              my={7}
-              display="flex"
-              alignItems="center"
-              justifyContent="space-around"
-              style={{ boxShadow: "0px 0px 0px 0px !important" }}
-              gap={8}
-              p={2}
-            >
-              <YearlyGraph />
-            </Box>
+          <Item
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "300px",
+            }}
+          >
+            <div>
+              <div>hello</div>
+              <div>
+                <YearlyGraph />
+              </div>
+
+              <div></div>
+            </div>
           </Item>
         </Grid>
         <Grid item xs={4.1}>
-          <Item>
-            {" "}
-            <Box
-              height={130}
-              width={100}
-              my={3}
-              display="flex"
-              alignItems="center"
-              style={{ boxShadow: "0px 0px 0px 0px !important" }}
-              gap={8}
-              p={2}
-            >
-              This Box uses MUI System props for quick customization.
-            </Box>
+          <Item
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-end",
+              height: "300px",
+              background: "#fefefe",
+            }}
+          >
+            <CustomersPieChart />
           </Item>
         </Grid>
         <Grid item xs={12}>

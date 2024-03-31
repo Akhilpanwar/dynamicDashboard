@@ -5,7 +5,8 @@
         "value":"$198K",
         "increment":"37.8%",
         "decrement":"0",
-        "tenure":"month"
+        "tenure":"month",
+        "icon":"GiReceiveMoney"
 
     },{
         "id":"1",
@@ -13,7 +14,8 @@
         "value":"$2.4K",
         "increment":"0",
         "decrement":"2%",
-        "tenure":"month"
+        "tenure":"month",
+        "icon":""
     },
     {
         "id":"2",

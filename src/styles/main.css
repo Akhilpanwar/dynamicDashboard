@@ -58,3 +58,20 @@ outline: 40;
 .charts{
   display: flex;
 }
+
+
+.shaded-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15rem;
+  height: 6rem;
+  background: linear-gradient(to bottom, #f0fff4,#f0fff4);
+  border-radius: 50%;
+  padding: 1.4rem;
+  box-sizing: border-box;
+}
+
+.shaded-icon svg {
+  fill: #f0fff4;
+}

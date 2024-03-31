@@ -1,12 +1,12 @@
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/Routes";
 import "./styles/main.css";
-import { Container } from "react-bootstrap";
+
 function App() {
   return (
-    <Container>
+    <div style={{ background: "whiteSmoke" }}>
       <RouterProvider router={router} />;
-    </Container>
+    </div>
   );
 }
 

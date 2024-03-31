@@ -1,0 +1,17 @@
+{
+    "barData": [
+      { "id": 0, "month": "Jan", "value": "60" },
+      { "id": 1, "month": "Feb", "value": "45" },
+      { "id": 2, "month": "Mar", "value": "90" },
+      { "id": 3, "month": "Apr", "value": "70" },
+      { "id": 4, "month": "May", "value": "78" },
+      { "id": 5, "month": "Jun", "value": "40" },
+      { "id": 6, "month": "Jul", "value": "80" },
+      { "id": 7, "month": "Aug", "value": "97" },
+      { "id": 8, "month": "Sep", "value": "94" },
+      { "id": 9, "month": "Oct", "value": "70" },
+      { "id": 10, "month": "Nov", "value": "60" },
+      { "id": 11, "month": "Dec", "value": "70" }
+    ]
+  }
+  

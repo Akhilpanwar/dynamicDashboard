@@ -9,9 +9,9 @@ import { CgNotes } from "react-icons/cg";
 import { TbDatabasePlus } from "react-icons/tb";
 import { MdLock } from "react-icons/md";
 import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
-import YearlyGraph from "./OverView";
-import CustomersPieChart from "./CustomersPieChart";
-import ProductSell from "./ProductSell";
+import Income from "./Income";
+import Customers from "./Customers";
+import Products from "./Products";
 import { Typography } from "@mui/material";
 import { PiHandWavingFill } from "react-icons/pi";
 
@@ -141,17 +141,17 @@ const DashBoard: React.FC = () => {
 
         <Grid item xs={12} md={7}>
           <Item>
-            <YearlyGraph />
+            <Income />
           </Item>
         </Grid>
         <Grid item xs={12} md={5}>
           <Item>
-            <CustomersPieChart />
+            <Customers />
           </Item>
         </Grid>
         <Grid item xs={12}>
           <Item>
-            <ProductSell />
+            <Products />
           </Item>
         </Grid>
       </Grid>

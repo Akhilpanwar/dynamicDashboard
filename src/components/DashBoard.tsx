@@ -14,6 +14,7 @@ import CustomersPieChart from "./CustomersPieChart";
 import ProductSell from "./ProductSell";
 import { Typography } from "@mui/material";
 import { PiHandWavingFill } from "react-icons/pi";
+
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -36,120 +37,119 @@ const DashBoard: React.FC = () => {
             Hello Sharukh <PiHandWavingFill color={"#d6ba96"} size={20} />
           </Typography>
         </Grid>
-        {dashboard.data.map((val) => {
-          return (
-            <Grid item xs={3} key={val.id}>
-              <Item className="dashboard-items">
-                <Box
-                  height={90}
-                  width={120}
-                  display="flex"
-                  alignItems="center"
-                  style={{ boxShadow: "0px 0px 0px 0px !important" }}
-                  gap={1}
+        {dashboard.data.map((val) => (
+          <Grid item xs={12} sm={6} md={3} key={val.id}>
+            <Item className="dashboard-items">
+              <Box
+                height={90}
+                width={120}
+                display="flex"
+                alignItems="center"
+                style={{ boxShadow: "0px 0px 0px 0px !important" }}
+                gap={1}
+                p={1}
+              >
+                <span
+                  className={`shaded-icon ${
+                    val.name === "orders"
+                      ? "orders-icon"
+                      : val.name === "Earning"
+                      ? "earning-icon"
+                      : val.name === "Balance"
+                      ? "balance-icon"
+                      : "sales-icon"
+                  }`}
                 >
-                  <span
-                    className={`shaded-icon ${
-                      val.name === "orders"
-                        ? "orders-icon"
-                        : val.name === "Earning"
-                        ? "earning-icon"
-                        : val.name === "Balance"
-                        ? "balance-icon"
-                        : "sales-icon"
-                    }`}
-                  >
-                    {val.name === "orders" ? (
-                      <CgNotes size={44} color={"#8900fa"} />
-                    ) : val.name === "Earning" ? (
-                      <RiMoneyDollarCircleLine size={44} color={"#5ba54c"} />
-                    ) : val.name === "Balance" ? (
-                      <TbDatabasePlus size={44} color={"#355bbc"} />
-                    ) : (
-                      <MdLock size={44} color={"#c7455f"} />
-                    )}
-                  </span>
+                  {val.name === "orders" ? (
+                    <CgNotes size={44} color={"#8900fa"} />
+                  ) : val.name === "Earning" ? (
+                    <RiMoneyDollarCircleLine size={44} color={"#5ba54c"} />
+                  ) : val.name === "Balance" ? (
+                    <TbDatabasePlus size={44} color={"#355bbc"} />
+                  ) : (
+                    <MdLock size={44} color={"#c7455f"} />
+                  )}
+                </span>
 
-                  <Box
+                <Box
+                  display="flex"
+                  alignItems="flex-start"
+                  justifyContent="space-around"
+                  flexDirection="column"
+                >
+                  <Typography
+                    color="lightgrey"
+                    fontFamily="sans-serif"
+                    fontSize="12px"
+                  >
+                    {val.name}
+                  </Typography>
+                  <Typography
+                    color="black"
+                    fontFamily="sans-serif"
+                    fontWeight="bold"
+                  >
+                    {val.value}
+                  </Typography>
+
+                  <Typography
+                    variant="body2"
                     display="flex"
                     alignItems="flex-start"
-                    justifyContent="space-around"
-                    flexDirection="column"
+                    justifyContent="space-between"
+                    color="black"
+                    fontFamily="sans-serif"
+                    fontSize="12px"
+                    sx={{ whiteSpace: "nowrap" }}
                   >
-                    <Typography
-                      color="lightgrey"
-                      fontFamily="sans-serif"
-                      fontSize="12px"
-                    >
-                      {val.name}
-                    </Typography>
-                    <Typography
-                      color="black"
-                      fontFamily="sans-serif"
-                      fontWeight="bold"
-                    >
-                      {val.value}
-                    </Typography>
-
-                    <Typography
-                      variant="body2"
-                      display="flex"
-                      alignItems="flex-start"
-                      justifyContent="space-between"
-                      color="black"
-                      fontFamily="sans-serif"
-                      fontSize="12px"
-                      sx={{ whiteSpace: "nowrap" }}
-                    >
-                      <span>
-                        {val.increment !== "0" ? (
-                          <span
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-around",
-                              color: "green",
-                            }}
-                          >
-                            <FaLongArrowAltUp />
-                            {val.increment}
-                          </span>
-                        ) : (
-                          <span
-                            style={{
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-around",
-                              color: "red",
-                            }}
-                          >
-                            <FaLongArrowAltDown />
-                            {val.decrement}
-                          </span>
-                        )}{" "}
-                      </span>
-                      &nbsp;
-                      <span>{val.tenure}</span>
-                    </Typography>
-                  </Box>
+                    <span>
+                      {val.increment !== "0" ? (
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-around",
+                            color: "green",
+                          }}
+                        >
+                          <FaLongArrowAltUp />
+                          {val.increment}
+                        </span>
+                      ) : (
+                        <span
+                          style={{
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-around",
+                            color: "red",
+                          }}
+                        >
+                          <FaLongArrowAltDown />
+                          {val.decrement}
+                        </span>
+                      )}{" "}
+                    </span>
+                    &nbsp;
+                    <span>{val.tenure}</span>
+                  </Typography>
                 </Box>
-              </Item>
-            </Grid>
-          );
-        })}
+              </Box>
+            </Item>
+          </Grid>
+        ))}
 
-        <Grid item xs={7.9}>
-          <Item className="dashboard-items">
+        <Grid item xs={12} md={7}>
+          <Item>
             <YearlyGraph />
           </Item>
         </Grid>
-        <Grid item xs={4.1}>
-          <Item className="dashboard-items">
+        <Grid item xs={12} md={5}>
+          <Item>
             <CustomersPieChart />
           </Item>
         </Grid>
         <Grid item xs={12}>
-          <Item className="dashboard-items">
+          <Item>
             <ProductSell />
           </Item>
         </Grid>

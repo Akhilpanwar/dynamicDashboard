@@ -15,6 +15,7 @@ import {
   Select,
   MenuItem,
   InputAdornment,
+  Grid,
 } from "@mui/material";
 import { CiSearch } from "react-icons/ci";
 import products from "../data/products.json";
@@ -30,15 +31,16 @@ const ProductTable: React.FC = () => {
   const handleSortChange = (event: any) => {
     setSortValue(event.target.value);
   };
+
   const handleSearchSubmit = (event: any) => {
     event.preventDefault();
-
     setSearchTerm("");
   };
 
   const filteredProducts = products.productData.filter((product) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   const sortedProducts = filteredProducts.sort((a, b) => {
     switch (sortValue) {
       case "name":
@@ -55,121 +57,98 @@ const ProductTable: React.FC = () => {
   });
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        overflowX: "auto",
-      }}
-    >
+    <Box sx={{ width: "100%", overflowX: "auto" }}>
       <TableContainer component={Paper}>
-        <Box
-          my={1}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          mb={2}
+          p={1}
         >
-          <Box mx={2}>
+          <Grid item xs={12} md={6}>
             <Typography
-              color="black"
-              fontFamily="sans-serif"
+              variant="h6"
               fontWeight="bold"
-              variant="h5"
+              color="black"
+              textAlign={{ xs: "center", md: "left" }}
             >
               Product Sell
             </Typography>
-          </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <form onSubmit={handleSearchSubmit}>
-              <TextField
-                id="search-product"
-                placeholder={` Search`}
-                variant="outlined"
-                size="small"
-                value={searchTerm}
-                hiddenLabel
-                onChange={handleSearchChange}
-                sx={{
-                  marginBottom: "1rem",
-
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
-                  },
-                }}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <CiSearch color={searchTerm ? "black" : ""} />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-            </form>
-            <FormControl size="small" hiddenLabel>
-              <Select
-                value={sortValue}
-                onChange={handleSortChange}
-                sx={{
-                  marginRight: "3rem",
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    border: "none",
-                  },
-                  "& .MuiOutlinedInput-input": {
-                    color: "#bfc0c1",
-                    padding: "5px 10px",
-                  },
-                }}
-              >
-                <MenuItem value={"name"}>Name</MenuItem>
-                <MenuItem value={"price"}>Price</MenuItem>
-                <MenuItem value={"totalSales"}>Total Sales</MenuItem>
-                <MenuItem value={"last30days"}>Last 30 days</MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </Box>
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <Box
+              display="flex"
+              justifyContent={{ xs: "center", md: "flex-end" }}
+            >
+              <form onSubmit={handleSearchSubmit} style={{ marginRight: 10 }}>
+                <TextField
+                  id="search-product"
+                  placeholder={` Search`}
+                  variant="outlined"
+                  size="small"
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  sx={{
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "none",
+                    },
+                  }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <CiSearch color={searchTerm ? "black" : ""} />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </form>
+              <FormControl size="small" sx={{ minWidth: 120 }}>
+                <Select
+                  value={sortValue}
+                  onChange={handleSortChange}
+                  inputProps={{
+                    className: "select-input",
+                  }}
+                  sx={{
+                    "& .MuiOutlinedInput-notchedOutline": {
+                      border: "none",
+                    },
+                    "& .MuiOutlinedInput-input": {
+                      color: "#bfc0c1",
+                      padding: "5px 10px",
+                    },
+                  }}
+                >
+                  <MenuItem value={"name"}>Name</MenuItem>
+                  <MenuItem value={"price"}>Price</MenuItem>
+                  <MenuItem value={"totalSales"}>Total Sales</MenuItem>
+                  <MenuItem value={"last30days"}>Last 30 days</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Grid>
+        </Grid>
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell>
-                <Typography
-                  color="grey"
-                  fontFamily="sans-serif"
-                  fontSize="12px"
-                >
+              <TableCell sx={{ minWidth: 200 }}>
+                <Typography color="grey" fontSize="12px">
                   Product Name
-                </Typography>{" "}
+                </Typography>
               </TableCell>
-              <TableCell align="right">
-                <Typography
-                  color="grey"
-                  fontFamily="sans-serif"
-                  fontSize="12px"
-                >
+              <TableCell align="right" sx={{ minWidth: 100 }}>
+                <Typography color="grey" fontSize="12px">
                   Stock
                 </Typography>
               </TableCell>
-              <TableCell align="right">
-                <Typography
-                  color="grey"
-                  fontFamily="sans-serif"
-                  fontSize="12px"
-                >
+              <TableCell align="right" sx={{ minWidth: 100 }}>
+                <Typography color="grey" fontSize="12px">
                   price
                 </Typography>
               </TableCell>
-              <TableCell align="right">
-                <Typography
-                  color="grey"
-                  fontFamily="sans-serif"
-                  fontSize="12px"
-                >
+              <TableCell align="right" sx={{ minWidth: 100 }}>
+                <Typography color="grey" fontSize="12px">
                   Total Sales
                 </Typography>
               </TableCell>
@@ -178,13 +157,8 @@ const ProductTable: React.FC = () => {
           <TableBody>
             {sortedProducts.map((product, index) => (
               <TableRow key={index}>
-                <TableCell>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                    }}
-                  >
+                <TableCell sx={{ minWidth: 200, borderBottom: "none" }}>
+                  <Box sx={{ display: "flex", alignItems: "center" }}>
                     <img
                       src={product.image}
                       alt={product.name}
@@ -194,49 +168,48 @@ const ProductTable: React.FC = () => {
                         objectFit: "cover",
                         borderRadius: "4px",
                         marginRight: "1rem",
-                      }} // Added styles for image tag
+                      }}
                     />
                     <div>
                       <Typography variant="body1" fontWeight="bold">
                         {product.name}
                       </Typography>
-                      <Typography
-                        variant="subtitle1"
-                        fontWeight="lighter"
-                        color="grey"
-                      >
+                      <Typography variant="subtitle1" color="textSecondary">
                         {product.description}
                       </Typography>
                     </div>
                   </Box>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell
+                  align="right"
+                  sx={{ minWidth: 100, borderBottom: "none" }}
+                >
                   <Chip
                     label={`${product.stock} in stock`}
                     size="small"
-                    sx={{
-                      marginLeft: "4rem",
-                    }}
+                    sx={{ marginLeft: "4rem" }}
                   />
                 </TableCell>
-                <TableCell align="right">
+                <TableCell
+                  align="right"
+                  sx={{ minWidth: 100, borderBottom: "none" }}
+                >
                   <Chip
                     label={`$ ${product.price}`}
                     size="small"
                     color="secondary"
-                    sx={{
-                      marginLeft: "1rem",
-                    }}
+                    sx={{ marginLeft: "1rem" }}
                   />
                 </TableCell>
-                <TableCell align="right">
+                <TableCell
+                  align="right"
+                  sx={{ minWidth: 100, borderBottom: "none" }}
+                >
                   <Chip
                     label={`${product.totalSales}`}
                     size="small"
                     color="primary"
-                    sx={{
-                      marginLeft: "1rem",
-                    }}
+                    sx={{ marginLeft: "1rem" }}
                   />
                 </TableCell>
               </TableRow>

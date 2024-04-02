@@ -12,10 +12,12 @@ import {
 import { BiSolidOffer } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { UserMenu } from "./userMenu";
+import { useMediaQuery } from "@mui/material";
 
 const ProSideBar: React.FC = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState<number>(0);
+  const [collapsed, setCollapsed] = useState(false);
   const iconMap: { [key: string]: React.FC } = {
     TbSquareKey,
     FaDiceD6,
@@ -23,9 +25,13 @@ const ProSideBar: React.FC = () => {
     BiSolidOffer,
     MdOutlineLiveHelp,
   };
+
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const toggleCollapsed = () => setCollapsed(!collapsed);
+
   return (
     <div>
-      <Sidebar>
+      <Sidebar className="sidebar-container" collapsed={collapsed}>
         <Menu className="side-container">
           <MenuItem
             color="white"
@@ -59,12 +65,6 @@ const ProSideBar: React.FC = () => {
                   </MenuItem>
                   <MenuItem className="user-menu-container">
                     <UserMenu />
-                    <style>{`
-    .pro-sidebar .user-menu-container:hover {
-      background-color: transparent;
-      box-shadow: none;
-    }
-  `}</style>
                   </MenuItem>
                 </div>
               );
@@ -72,6 +72,23 @@ const ProSideBar: React.FC = () => {
           </div>
         </Menu>
       </Sidebar>
+      {isSmallScreen && (
+        <button
+          onClick={toggleCollapsed}
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            zIndex: 100,
+            border: "none",
+            background: "none",
+            cursor: "pointer",
+            outline: "none",
+          }}
+        >
+          {collapsed ? <MdOutlineDashboard /> : <MdKeyboardArrowRight />}
+        </button>
+      )}
     </div>
   );
 };

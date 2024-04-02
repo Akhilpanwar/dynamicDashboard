@@ -3,9 +3,37 @@
   display: grid !important;
   grid-template-rows: 1fr;
   height: 100vh !important;
+  width: 100% !important;
+
+}
+.sidebar-container {
+  flex: 0 0 auto;
+width: 100% !important;
+  border-right: 1px solid #ccc;
+  overflow: none;
   
 }
 
+.content-container {
+  overflow: scroll;
+  flex: 1;
+  padding: 20px;
+  width: 82%; 
+  background-color: #f3f6f8 !important;
+}
+
+.dashboard-container {
+  display: flex;
+ 
+}
+.sideMenu-container{
+  width: 17.5% !important;
+}
+
+.router-container {
+  display: flex;
+  height: 98vh;
+}
 .menu {
   display: flex;
   flex-direction: column;
@@ -27,12 +55,10 @@
 .main-title{
   color: white;
   display: flex;
-  margin-left: 12px;
-  margin-top: 12px;
+
   font-size: 20px;
-  width: max-content !important;
-  align-items: center;
-  justify-content: center;
+
+ 
 }
 
 .main-title :hover{
@@ -52,7 +78,7 @@
 .left-Menu-items{
 
 
-padding: 15px 15px;
+padding: 7% 7%;
 
 
 }
@@ -65,7 +91,7 @@ padding: 15px 15px;
   color: white;
 
 
-  padding: 5px 15px; /* Adjust padding as needed */
+  padding: 3% 3%; /* Adjust padding as needed */
   border-radius: 10px; /* Add border radius if desired */
   background-color: #313167; /* Optional background color */
 }
@@ -92,30 +118,9 @@ padding: 15px 15px;
   box-shadow: none;
 }
 
-.router-container {
-  display: flex;
-  height: 98vh;
-}
 
-.sidebar-container {
-  flex: 0 0 auto;
-  width: 250px;
- 
-  border-right: 1px solid #ccc;
-  overflow: none;
 
-}
 
-.content-container {
-overflow: scroll;
-  flex: 1;
-  padding: 20px;
-}
-.dashboard-container{
-
-  display: flex;
-
-}
 .charts{
   display: flex;
 }
@@ -125,13 +130,12 @@ overflow: scroll;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15rem;
-  height: 6rem;
- 
+
   border-radius: 50%;
   padding: 1.4rem;
   box-sizing: border-box;
 }
+
 
 
 .orders-icon {
@@ -152,13 +156,7 @@ overflow: scroll;
 
 
 
-.dashboard-items{
-  flex-grow: 1 !important;
-  box-shadow: none !important; /* Equivalent to "0px 0px 0px 0px !important" */
-  gap: 1rem !important; /* Assuming "gap" refers to margin or spacing */
-  padding: 1rem !important; /* Assuming "p" refers to padding */
-  border-radius: 0.75rem !important;
-}
+
 
 
 .centered-position {
@@ -170,3 +168,24 @@ overflow: scroll;
   flex-direction: column;
   align-items: center;
 }
+
+
+@media screen and (max-width: 768px) {
+ 
+  .menu {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+
+
+  .dashboard-items {
+    padding: 0.5rem !important;
+  }
+
+  .shaded-icon {
+    width: 10rem;
+    height: 4rem;
+  }
+}
+

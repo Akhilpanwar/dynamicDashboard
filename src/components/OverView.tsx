@@ -1,4 +1,12 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Cell } from "recharts";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Cell,
+  ResponsiveContainer,
+} from "recharts";
 import earning from "../data/earning.json";
 import { Box, Typography, FormControl, MenuItem, Select } from "@mui/material";
 
@@ -8,7 +16,7 @@ const YearlyBarChart = () => {
   // const monthName = date.toLocaleString("default", { month: "short" });
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center">
+    <Box display="flex" flexDirection="column" alignItems="center" p={1}>
       <Box display="flex" justifyContent="space-between" width="100%">
         <Box>
           <Typography
@@ -41,26 +49,26 @@ const YearlyBarChart = () => {
           </Select>
         </FormControl>
       </Box>
-      <BarChart width={700} height={280} data={earning.barData}>
-        <CartesianGrid
-          strokeDasharray="3 3"
-          stroke="transparent"
-          horizontal={false}
-        />
-
-        <XAxis dataKey="month" axisLine={false} tickLine={false} />
-        <YAxis hide={true} />
-
-        <Bar dataKey="value" radius={[10, 10, 10, 10]}>
-          <Cell key="cell-0" fill="#f1effe" />
-          {earning.barData.map((val, index) => (
-            <Cell
-              key={`cell-${index + 1}`}
-              fill={val.month === "Jul" ? "#5235e5" : "#f1effe"}
-            />
-          ))}
-        </Bar>
-      </BarChart>
+      <ResponsiveContainer width="100%" height={300}>
+        <BarChart data={earning.barData}>
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="transparent"
+            horizontal={false}
+          />
+          <XAxis dataKey="month" axisLine={false} tickLine={false} />
+          <YAxis hide={true} />
+          <Bar dataKey="value" radius={[10, 10, 10, 10]}>
+            <Cell key="cell-0" fill="#f1effe" />
+            {earning.barData.map((val, index) => (
+              <Cell
+                key={`cell-${index + 1}`}
+                fill={val.month === "Jul" ? "#5235e5" : "#f1effe"}
+              />
+            ))}
+          </Bar>
+        </BarChart>
+      </ResponsiveContainer>
     </Box>
   );
 };

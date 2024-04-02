@@ -1,0 +1,41 @@
+{
+    "customerData":[
+        {
+            "name": "Group c",
+            "value": 60,
+            "strokeWidth": 0,
+            "fill":  "#d23b96",
+            "innerRadius": 70,
+            "outerRadius": 90,
+"startAngle":0,
+"endAngle":40,
+"cornerRadius":-10
+            
+          },
+          {
+            "name": "Group A",
+            "value": 120,
+            "strokeWidth":16,
+            "startAngle":19,
+"endAngle":140,
+           
+            "fill":"#f0effb",
+            "innerRadius": 100,
+            "outerRadius": 140,
+            "cornerRadius":-10
+           
+          },
+          {
+            "name": "Group B",
+            "value": 140,
+            "strokeWidth": 8,
+            "startAngle":141,
+            "endAngle":380,
+            "fill": "#4e34e3",
+            "innerRadius": 70,
+            "outerRadius": 110,
+            "cornerRadius":300
+         
+          }
+        ]
+}

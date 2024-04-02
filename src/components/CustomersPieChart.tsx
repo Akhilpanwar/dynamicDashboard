@@ -1,54 +1,57 @@
-import React, { useCallback, useState, useEffect } from "react";
-import { PieChart, Pie, Cell, Legend } from "recharts";
+import { Box, Typography } from "@mui/material";
 
-interface DataPoint {
-  name: string;
-  value: number;
-  strokeWidth?: number;
-  innerRadius: number;
-  outerRadius: number;
-  fill: string;
-  width?: number;
-}
+import { PieChart, Pie, Cell, Legend, Text } from "recharts";
+import Customers from "../data/customer.json";
 
-const data: DataPoint[] = [
-  {
-    name: "Group c",
-    value: 75,
-    strokeWidth: 3,
-    fill: "#f0effb",
-    innerRadius: 70,
-    outerRadius: 90,
-  },
-  {
-    name: "Group A",
-    value: 70,
-    strokeWidth: 5,
-    fill: "#4e34e3",
-    innerRadius: 100,
-    outerRadius: 140,
-  },
-  {
-    name: "Group B",
-    value: 40,
-    strokeWidth: 10,
-    fill: "#d23b96",
-    innerRadius: 70,
-    outerRadius: 110,
-  },
-];
 export default function CustomersPieChart() {
   return (
-    <PieChart width={270} height={300}>
-      <Pie data={data} dataKey="value" innerRadius={70} outerRadius={100}>
-        {data.map((entry, index) => (
-          <Cell
-            key={`cell-${index}`}
-            fill={entry.fill}
-            strokeWidth={entry.strokeWidth}
-          />
-        ))}
-      </Pie>
-    </PieChart>
+    <Box
+      display="flex"
+      flexDirection="column"
+      alignItems="center"
+      sx={{ borderRadius: 4 }}
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        width="100%"
+        height="80%"
+      >
+        <Box>
+          <Typography
+            color="black"
+            fontFamily="sans-serif"
+            fontWeight="bold"
+            variant="h5"
+          >
+            Overview
+          </Typography>
+          <Typography color="grey" fontFamily="sans-serif" fontSize="12px">
+            Monthly Earning
+          </Typography>
+        </Box>
+      </Box>
+      <PieChart width={270} height={270}>
+        <Pie
+          data={Customers.customerData}
+          dataKey="value"
+          innerRadius={70}
+          outerRadius={100}
+          startAngle={Customers.customerData[0].startAngle}
+          endAngle={
+            Customers.customerData[Customers.customerData.length - 1].endAngle
+          }
+        >
+          {Customers.customerData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={entry.fill}
+              strokeWidth={entry.strokeWidth}
+            />
+          ))}
+          <Legend verticalAlign="bottom" height={36} />
+        </Pie>
+      </PieChart>
+    </Box>
   );
 }

@@ -1,0 +1,44 @@
+{
+  "productData": [
+    {
+      "name": "Abstract 3D",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Clothing",
+      "brand": "Brand X",
+      "stock": 32,
+      "price": 45.99,
+      "total_sales_value": 999.50,
+      "totalSales": 20,
+      "last30days": "15",
+      "image": "https://img.freepik.com/premium-photo/neon-ice-crystals-as-abstract-3d-geometry-background-wallpaper-illustration-ai-generation_201606-2372.jpg",
+      "more": 20
+    },
+    {
+      "name": "Sarphens illustration",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Electronics",
+      "brand": "Tech Giant",
+      "stock": 32,
+      "price": 45.99,
+      "total_sales_value": 15999.80,
+      "discount": 10,
+      "totalSales": 20,
+      "last30days": "12",
+      "image": "https://media.istockphoto.com/id/1280582431/photo/3d-abstract-wavy-spiral-background-neon-lighting.webp?b=1&s=170667a&w=0&k=20&c=RkPhUQwhzmxd2yNeLoN-HFciVE-sbiO_jG_FHCIc-po=",
+      "more": 30
+    },
+    {
+      "name": "Product C",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "category": "Furniture",
+      "brand": "Furniture Co.",
+      "stock": 25,
+      "price": 99.99,
+      "total_sales_value": 2499.75,
+      "totalSales": 25,
+      "last30days": "25",
+      "image": "https://media.istockphoto.com/id/1575389834/photo/gradient-multilayer-glass-background-3d-rendering.webp?b=1&s=170667a&w=0&k=20&c=ISXidoXs3L7jCYzR1l5hExwr3JX3gwt0H7I5KHaRgTc=",
+      "more": 5
+    }
+  ]
+}

@@ -5,8 +5,8 @@
         "value":"$198K",
         "increment":"37.8%",
         "decrement":"0",
-        "tenure":"month",
-        "icon":"GiReceiveMoney"
+        "tenure":"this month"
+     
 
     },{
         "id":"1",
@@ -14,8 +14,9 @@
         "value":"$2.4K",
         "increment":"0",
         "decrement":"2%",
-        "tenure":"month",
-        "icon":""
+        "tenure":"this month"
+     
+       
     },
     {
         "id":"2",
@@ -23,13 +24,14 @@
         "value":"$2.4K",
         "increment":"0",
         "decrement":"2%",
-        "tenure":"month"
+        "tenure":"this month"
+
     },{
         "id":"3",
         "name":"Total Sales",
         "value":"$89K",
         "increment":"37.8%",
         "decrement":"11",
-        "tenure":"week"
+        "tenure":"this week"
     }]
 }

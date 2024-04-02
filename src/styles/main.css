@@ -1,54 +1,115 @@
 .side-container {
-  background-color:#000435 !important;
-  display: grid;
+  background-color:#050541 !important;
+  display: grid !important;
   grid-template-rows: 1fr;
-  height: 100vh;
+  height: 100vh !important;
+  
 }
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
 .sub-Menu{
   color: grey;
   justify-self: stretch;
-
+  margin: 4%;
 }
+
+.sub-Menu :hover {
+  background-color:  #313167!important;
+ border-radius: 6px;
+}
+
+
 .main-title{
   color: white;
   display: flex;
+  margin-left: 12px;
+  margin-top: 12px;
+  font-size: 20px;
+  width: max-content !important;
+  align-items: center;
+  justify-content: center;
+}
 
+.main-title :hover{
  
-
+  background-color: transparent !important;
 }
 .sub-Menu-active{
-  background-color: lightblue !important;
+  background-color: #313167 !important;
   color: white !important;
   border-radius: 6px;
-  padding: 0% !important;
-
+  margin: 4%;
+}
+.sub-Menu-active :hover{
+  background-color:  #313167!important;
+  border-radius: 6px;
 }
 .left-Menu-items{
-margin-block-start: 32px !important; 
 
-padding: 12px 12px;
-border-radius: 40;
-outline: 40;
+
+padding: 15px 15px;
+
+
+}
+ 
+
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  color: white;
+
+
+  padding: 5px 15px; /* Adjust padding as needed */
+  border-radius: 10px; /* Add border radius if desired */
+  background-color: #313167; /* Optional background color */
+}
+.user-menu-icon {
+  width: 40px; /* Example width */
+}
+.user-menu-container {
+  position: absolute !important;
+  bottom: 50px !important; /* Adjust spacing as desired */
+  left: 0;
+  height: max-content !important;
+  width: 100%; /* Match sidebar width */
 }
 
+.user-menu-container :hover {
+  background-color: transparent !important; /* Or any other desired style */
 
+  
+
+ 
+}
+.pro-sidebar .user-menu-container:hover {
+  background-color: transparent;
+  box-shadow: none;
+}
 
 .router-container {
   display: flex;
-  height: 100vh; /* Ensure the container takes up the full viewport height */
+  height: 98vh;
 }
 
 .sidebar-container {
-  flex: 0 0 auto; /* Allow the sidebar to take its natural width */
-  width: 250px; /* Set the width of the sidebar */
-  background-color: #f0f0f0; /* Example background color for the sidebar */
-  border-right: 1px solid #ccc; /* Example border to separate sidebar from content */
+  flex: 0 0 auto;
+  width: 250px;
+ 
+  border-right: 1px solid #ccc;
+  overflow: none;
+
 }
 
 .content-container {
-
-  flex: 1; /* Allow the content to expand to fill remaining space */
-  padding: 20px; /* Add padding to the content */
+overflow: scroll;
+  flex: 1;
+  padding: 20px;
 }
 .dashboard-container{
 
@@ -66,12 +127,46 @@ outline: 40;
   justify-content: center;
   width: 15rem;
   height: 6rem;
-  background: linear-gradient(to bottom, #f0fff4,#f0fff4);
+ 
   border-radius: 50%;
   padding: 1.4rem;
   box-sizing: border-box;
 }
 
-.shaded-icon svg {
-  fill: #f0fff4;
+
+.orders-icon {
+  background: linear-gradient(to bottom, #e3dafe, #e3dafe);
+}
+
+.earning-icon {
+  background: linear-gradient(to bottom, #effff3, #effff3);
+}
+
+.balance-icon {
+  background: linear-gradient(to bottom, #d8f3ff, #d8f3ff);
+}
+
+.sales-icon {
+  background: linear-gradient(to bottom, #f1ceed, #f1ceed);
+}
+
+
+
+.dashboard-items{
+  flex-grow: 1 !important;
+  box-shadow: none !important; /* Equivalent to "0px 0px 0px 0px !important" */
+  gap: 1rem !important; /* Assuming "gap" refers to margin or spacing */
+  padding: 1rem !important; /* Assuming "p" refers to padding */
+  border-radius: 0.75rem !important;
+}
+
+
+.centered-position {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

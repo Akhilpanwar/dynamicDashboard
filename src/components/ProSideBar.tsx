@@ -11,6 +11,8 @@ import {
 } from "react-icons/md";
 import { BiSolidOffer } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
+import { UserMenu } from "./userMenu";
+
 const ProSideBar: React.FC = () => {
   const navigate = useNavigate();
   const [isActive, setIsActive] = useState<number>(0);
@@ -54,6 +56,15 @@ const ProSideBar: React.FC = () => {
                     {isActive !== val.id && (
                       <MdKeyboardArrowRight style={{ float: "right" }} />
                     )}
+                  </MenuItem>
+                  <MenuItem className="user-menu-container">
+                    <UserMenu />
+                    <style>{`
+    .pro-sidebar .user-menu-container:hover {
+      background-color: transparent;
+      box-shadow: none;
+    }
+  `}</style>
                   </MenuItem>
                 </div>
               );

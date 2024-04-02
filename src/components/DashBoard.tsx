@@ -4,14 +4,16 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import dashboard from "../data/dashboard.json";
-import { MdOutlineAttachMoney } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { CgNotes } from "react-icons/cg";
 import { TbDatabasePlus } from "react-icons/tb";
-import { FcSalesPerformance } from "react-icons/fc";
+import { MdLock } from "react-icons/md";
 import { FaLongArrowAltDown, FaLongArrowAltUp } from "react-icons/fa";
 import YearlyGraph from "./OverView";
 import CustomersPieChart from "./CustomersPieChart";
-
+import ProductSell from "./ProductSell";
+import { Typography } from "@mui/material";
+import { PiHandWavingFill } from "react-icons/pi";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -22,56 +24,114 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const DashBoard: React.FC = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={6}>
-        <Grid item xs={12}></Grid>
+    <Box
+      sx={{
+        flexGrow: 1,
+        boxShadow: "0px 0px 0px 0px !important",
+      }}
+    >
+      <Grid container spacing={5}>
+        <Grid item xs={12}>
+          <Typography>
+            Hello Sharukh <PiHandWavingFill color={"#d6ba96"} size={20} />
+          </Typography>
+        </Grid>
         {dashboard.data.map((val) => {
           return (
             <Grid item xs={3} key={val.id}>
-              <Item>
+              <Item className="dashboard-items">
                 <Box
                   height={90}
-                  width={100}
+                  width={120}
                   display="flex"
                   alignItems="center"
                   style={{ boxShadow: "0px 0px 0px 0px !important" }}
-                  gap={8}
-                  p={2}
+                  gap={1}
                 >
-                  <span className="shaded-icon">
+                  <span
+                    className={`shaded-icon ${
+                      val.name === "orders"
+                        ? "orders-icon"
+                        : val.name === "Earning"
+                        ? "earning-icon"
+                        : val.name === "Balance"
+                        ? "balance-icon"
+                        : "sales-icon"
+                    }`}
+                  >
                     {val.name === "orders" ? (
-                      <CgNotes size={44} />
+                      <CgNotes size={44} color={"#8900fa"} />
                     ) : val.name === "Earning" ? (
-                      <MdOutlineAttachMoney
-                        size={44}
-                        style={{ border: "2px solid green" }}
-                        color={"green"}
-                      />
+                      <RiMoneyDollarCircleLine size={44} color={"#5ba54c"} />
                     ) : val.name === "Balance" ? (
-                      <TbDatabasePlus size={44} />
+                      <TbDatabasePlus size={44} color={"#355bbc"} />
                     ) : (
-                      <FcSalesPerformance size={44} />
+                      <MdLock size={44} color={"#c7455f"} />
                     )}
                   </span>
 
-                  <div>
-                    <h5>{val.name}</h5>
-                    <h2>{val.value}</h2>
-                    <h6>
-                      {val.increment !== "0" ? (
-                        <>
-                          <FaLongArrowAltUp />
-                          {val.increment}
-                        </>
-                      ) : (
-                        <>
-                          <FaLongArrowAltDown />
-                          {val.decrement}
-                        </>
-                      )}
-                      this {val.tenure}
-                    </h6>
-                  </div>
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
+                    justifyContent="space-around"
+                    flexDirection="column"
+                  >
+                    <Typography
+                      color="lightgrey"
+                      fontFamily="sans-serif"
+                      fontSize="12px"
+                    >
+                      {val.name}
+                    </Typography>
+                    <Typography
+                      color="black"
+                      fontFamily="sans-serif"
+                      fontWeight="bold"
+                    >
+                      {val.value}
+                    </Typography>
+
+                    <Typography
+                      variant="body2"
+                      display="flex"
+                      alignItems="flex-start"
+                      justifyContent="space-between"
+                      color="black"
+                      fontFamily="sans-serif"
+                      fontSize="12px"
+                      sx={{ whiteSpace: "nowrap" }}
+                    >
+                      <span>
+                        {val.increment !== "0" ? (
+                          <span
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-around",
+                              color: "green",
+                            }}
+                          >
+                            <FaLongArrowAltUp />
+                            {val.increment}
+                          </span>
+                        ) : (
+                          <span
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "space-around",
+                              color: "red",
+                            }}
+                          >
+                            <FaLongArrowAltDown />
+                            {val.decrement}
+                          </span>
+                        )}{" "}
+                      </span>
+                      &nbsp;
+                      <span>{val.tenure}</span>
+                    </Typography>
+                  </Box>
                 </Box>
               </Item>
             </Grid>
@@ -79,50 +139,18 @@ const DashBoard: React.FC = () => {
         })}
 
         <Grid item xs={7.9}>
-          <Item
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              height: "300px",
-            }}
-          >
-            <div>
-              <div>hello</div>
-              <div>
-                <YearlyGraph />
-              </div>
-
-              <div></div>
-            </div>
+          <Item className="dashboard-items">
+            <YearlyGraph />
           </Item>
         </Grid>
         <Grid item xs={4.1}>
-          <Item
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "flex-end",
-              height: "300px",
-              background: "#fefefe",
-            }}
-          >
+          <Item className="dashboard-items">
             <CustomersPieChart />
           </Item>
         </Grid>
         <Grid item xs={12}>
-          <Item>
-            {" "}
-            <Box
-              height={130}
-              width={100}
-              my={3}
-              display="flex"
-              alignItems="center"
-              style={{ boxShadow: "0px 0px 0px 0px !important" }}
-              gap={8}
-              p={2}
-            ></Box>
+          <Item className="dashboard-items">
+            <ProductSell />
           </Item>
         </Grid>
       </Grid>

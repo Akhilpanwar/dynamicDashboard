@@ -1,41 +1,40 @@
 {
-    "customerData":[
+  "customerData":[
+  
         {
-            "name": "Group c",
-            "value": 60,
-            "strokeWidth": 0,
-            "fill":  "#d23b96",
-            "innerRadius": 70,
-            "outerRadius": 90,
-"startAngle":0,
-"endAngle":40,
-"cornerRadius":-10
-            
-          },
-          {
-            "name": "Group A",
-            "value": 120,
-            "strokeWidth":16,
-            "startAngle":19,
-"endAngle":140,
-           
-            "fill":"#f0effb",
-            "innerRadius": 100,
-            "outerRadius": 140,
-            "cornerRadius":-10
-           
-          },
-          {
-            "name": "Group B",
-            "value": 140,
-            "strokeWidth": 8,
-            "startAngle":141,
-            "endAngle":380,
-            "fill": "#4e34e3",
-            "innerRadius": 70,
-            "outerRadius": 110,
-            "cornerRadius":300
+          "name": "satish",
+          "type":"old",
+          "value": 40,
+          "strokeWidth":0,
+         "stroke":"#f0effb",
+          "fill":"#f0effb",
+           "cornerRadius":0,
+           "startAngle":12
+
          
-          }
-        ]
+        },
+        {
+          "name": "sumit",
+          "type":"new",
+          "value":45,
+          "strokeWidth": 15,
+          "fill": "#4e34e3",
+          "stroke":"#4e34e3",
+          "cornerRadius":0,
+          "startAngle":12
+         
+       
+        },    {
+          "name": "sunny",
+          "type":"new",
+          "value": 20,
+          "strokeWidth": 25,
+          "fill":  "#d23b96",
+          "stroke":"#d23b96",
+            "cornerRadius":0,
+            "startAngle":0
+           
+          
+        }
+      ]
 }

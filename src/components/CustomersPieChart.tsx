@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 
-import { PieChart, Pie, Cell, Legend, Text } from "recharts";
+import { PieChart, Pie, Cell, Legend } from "recharts";
 import Customers from "../data/customer.json";
 
 export default function CustomersPieChart() {

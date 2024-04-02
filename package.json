@@ -57,6 +57,7 @@
   },
   "devDependencies": {
     "@types/material-ui": "^0.21.17",
+    "@types/recharts": "^1.8.29",
     "css-loader": "^6.10.0",
     "sass-loader": "^14.1.1"
   }

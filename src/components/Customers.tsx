@@ -1,7 +1,7 @@
 import React from "react";
 
 const Customers: React.FC = () => {
-  return <div>hi i m customer</div>;
+  return <div></div>;
 };
 
 export default Customers;

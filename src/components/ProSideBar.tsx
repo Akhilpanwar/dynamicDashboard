@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Sidebar, Menu, SubMenu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import path from "../data/paths.json";
 import { TbSquareKey } from "react-icons/tb";
 import { FaDiceD6 } from "react-icons/fa";

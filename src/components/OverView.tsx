@@ -49,14 +49,26 @@ const YearlyBarChart = () => {
           </Select>
         </FormControl>
       </Box>
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer
+        width="100%"
+        height={300}
+        style={{ top: 5, bottom: 5, left: 10, right: 10 }}
+      >
         <BarChart data={earning.barData}>
           <CartesianGrid
             strokeDasharray="3 3"
             stroke="transparent"
             horizontal={false}
           />
-          <XAxis dataKey="month" axisLine={false} tickLine={false} />
+          <XAxis
+            dataKey="month"
+            axisLine={false}
+            tickLine={false}
+            {...{
+              tick: { fontSize: 12, transform: "rotate(-60deg)" },
+              tickAngle: -60,
+            }}
+          />
           <YAxis hide={true} />
           <Bar dataKey="value" radius={[10, 10, 10, 10]}>
             <Cell key="cell-0" fill="#f1effe" />

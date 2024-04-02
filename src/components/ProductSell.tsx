@@ -184,11 +184,7 @@ const ProductTable: React.FC = () => {
                   align="right"
                   sx={{ minWidth: 100, borderBottom: "none" }}
                 >
-                  <Chip
-                    label={`${product.stock} in stock`}
-                    size="small"
-                    sx={{ marginLeft: "4rem" }}
-                  />
+                  <Chip label={`${product.stock} in stock`} size="small" />
                 </TableCell>
                 <TableCell
                   align="right"
@@ -198,7 +194,6 @@ const ProductTable: React.FC = () => {
                     label={`$ ${product.price}`}
                     size="small"
                     color="secondary"
-                    sx={{ marginLeft: "1rem" }}
                   />
                 </TableCell>
                 <TableCell
@@ -209,7 +204,6 @@ const ProductTable: React.FC = () => {
                     label={`${product.totalSales}`}
                     size="small"
                     color="primary"
-                    sx={{ marginLeft: "1rem" }}
                   />
                 </TableCell>
               </TableRow>

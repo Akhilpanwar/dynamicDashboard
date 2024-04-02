@@ -13,19 +13,22 @@ width: 100% !important;
   overflow: none;
   
 }
-
+.collapsed-side-container{
+  background-color:#050541 !important;
+  display: none;
+}
+.collapsed-sideMenu-container{
+  display: none;
+  
+}
 .content-container {
   overflow: scroll;
   flex: 1;
   padding: 20px;
-  width: 82%; 
+
   background-color: #f3f6f8 !important;
 }
 
-.dashboard-container {
-  display: flex;
- 
-}
 .sideMenu-container{
   width: 17.5% !important;
 }
@@ -55,7 +58,7 @@ width: 100% !important;
 .main-title{
   color: white;
   display: flex;
-
+margin: 6%;
   font-size: 20px;
 
  
@@ -172,20 +175,73 @@ padding: 7% 7%;
 
 @media screen and (max-width: 768px) {
  
-  .menu {
-    flex-direction: row;
-    justify-content: space-between;
+  .collapsed-side-container {
+    display: flex !important;
+    min-width: 100% !important;
+    width: 30% !important;
+    height: 100vh;
+  
   }
-
-
-
+  .collapsed-sideMenu-container {
+    display: grid !important;
+    grid-template-rows: 1fr;
+    width: 3% !important;
+ 
+  }
+  
+  
+  .dashboard-container {
+    display: flex;
+    margin-inline-start: 4rem;
+   
+  }
+  .sidebar-container {
+    display: none;
+  }
+  .sideMenu-container {
+    display: none;
+  }
+  
+  .side-container {
+    display: none;
+  }
   .dashboard-items {
-    padding: 0.5rem !important;
+    padding: .5rem  !important;
   }
-
+ 
   .shaded-icon {
     width: 10rem;
     height: 4rem;
+  }
+
+  .sub-Menu :hover {
+    background-color:  #313167!important;
+   border-radius: 6px;
+  }
+  
+  
+ 
+  .sub-Menu-active{
+    background-color: #313167 !important;
+    color: white !important;
+    border-radius: 6px;
+   
+  }
+  .left-Menu-items{
+
+
+    padding: 2% 4%;
+    
+    
+    }
+ 
+    .css-1wvake5{
+      min-width: 100% !important;
+      width:30% !important;
+    }
+  .sub-Menu-active :hover{
+    background-color:  #313167!important;
+    border-radius: 6px;
   }
 }
 

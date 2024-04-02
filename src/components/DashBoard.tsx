@@ -30,6 +30,7 @@ const DashBoard: React.FC = () => {
         flexGrow: 1,
         boxShadow: "0px 0px 0px 0px !important",
       }}
+      className="dashboard-container"
     >
       <Grid container spacing={5}>
         <Grid item xs={12}>

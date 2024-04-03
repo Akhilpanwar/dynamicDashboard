@@ -173,7 +173,7 @@ padding: 7% 7%;
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1065px) {
  
   .collapsed-side-container {
     display: flex !important;
@@ -190,11 +190,9 @@ padding: 7% 7%;
   }
   
   
-  .dashboard-container {
-    display: flex;
-    margin-inline-start: 4rem;
-   
-  }
+ .content-container{
+  margin-inline-start: 4rem;
+ }
   .sidebar-container {
     display: none;
   }
@@ -244,4 +242,5 @@ padding: 7% 7%;
     border-radius: 6px;
   }
 }
+
 

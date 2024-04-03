@@ -73,7 +73,7 @@ const Products: React.FC = () => {
           mb={2}
           p={1}
         >
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} style={{ overflow: "none" }}>
             <Typography
               variant="h6"
               fontWeight="bold"
@@ -136,87 +136,89 @@ const Products: React.FC = () => {
             </Box>
           </Grid>
         </Grid>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell sx={{ minWidth: 200 }}>
-                <Typography color="grey" fontSize="12px">
-                  Product Name
-                </Typography>
-              </TableCell>
-              <TableCell align="right" sx={{ minWidth: 100 }}>
-                <Typography color="grey" fontSize="12px">
-                  Stock
-                </Typography>
-              </TableCell>
-              <TableCell align="right" sx={{ minWidth: 100 }}>
-                <Typography color="grey" fontSize="12px">
-                  price
-                </Typography>
-              </TableCell>
-              <TableCell align="right" sx={{ minWidth: 100 }}>
-                <Typography color="grey" fontSize="12px">
-                  Total Sales
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {sortedProducts.map((product, index) => (
-              <TableRow key={index}>
-                <TableCell sx={{ minWidth: 200, borderBottom: "none" }}>
-                  <Box sx={{ display: "flex", alignItems: "center" }}>
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      style={{
-                        width: 50,
-                        height: 40,
-                        objectFit: "cover",
-                        borderRadius: "4px",
-                        marginRight: "1rem",
-                      }}
-                    />
-                    <div>
-                      <Typography variant="body1" fontWeight="bold">
-                        {product.name}
-                      </Typography>
-                      <Typography variant="subtitle1" color="textSecondary">
-                        {product.description}
-                      </Typography>
-                    </div>
-                  </Box>
+        <div style={{ overflowX: "scroll" }}>
+          <Table size="small">
+            <TableHead>
+              <TableRow>
+                <TableCell sx={{ minWidth: 200 }}>
+                  <Typography color="grey" fontSize="12px">
+                    Product Name
+                  </Typography>
                 </TableCell>
-                <TableCell
-                  align="right"
-                  sx={{ minWidth: 100, borderBottom: "none" }}
-                >
-                  <Chip label={`${product.stock} in stock`} size="small" />
+                <TableCell align="right" sx={{ minWidth: 100 }}>
+                  <Typography color="grey" fontSize="12px">
+                    Stock
+                  </Typography>
                 </TableCell>
-                <TableCell
-                  align="right"
-                  sx={{ minWidth: 100, borderBottom: "none" }}
-                >
-                  <Chip
-                    label={`$ ${product.price}`}
-                    size="small"
-                    color="secondary"
-                  />
+                <TableCell align="right" sx={{ minWidth: 100 }}>
+                  <Typography color="grey" fontSize="12px">
+                    price
+                  </Typography>
                 </TableCell>
-                <TableCell
-                  align="right"
-                  sx={{ minWidth: 100, borderBottom: "none" }}
-                >
-                  <Chip
-                    label={`${product.totalSales}`}
-                    size="small"
-                    color="primary"
-                  />
+                <TableCell align="right" sx={{ minWidth: 100 }}>
+                  <Typography color="grey" fontSize="12px">
+                    Total Sales
+                  </Typography>
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHead>
+            <TableBody>
+              {sortedProducts.map((product, index) => (
+                <TableRow key={index}>
+                  <TableCell sx={{ minWidth: 200, borderBottom: "none" }}>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        style={{
+                          width: 50,
+                          height: 40,
+                          objectFit: "cover",
+                          borderRadius: "4px",
+                          marginRight: "1rem",
+                        }}
+                      />
+                      <div>
+                        <Typography variant="body1" fontWeight="bold">
+                          {product.name}
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary">
+                          {product.description}
+                        </Typography>
+                      </div>
+                    </Box>
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    sx={{ minWidth: 100, borderBottom: "none" }}
+                  >
+                    <Chip label={`${product.stock} in stock`} size="small" />
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    sx={{ minWidth: 100, borderBottom: "none" }}
+                  >
+                    <Chip
+                      label={`$ ${product.price}`}
+                      size="small"
+                      color="secondary"
+                    />
+                  </TableCell>
+                  <TableCell
+                    align="right"
+                    sx={{ minWidth: 100, borderBottom: "none" }}
+                  >
+                    <Chip
+                      label={`${product.totalSales}`}
+                      size="small"
+                      color="primary"
+                    />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </TableContainer>
     </Box>
   );

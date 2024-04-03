@@ -21,6 +21,7 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(1),
   textAlign: "center",
   color: theme.palette.text.secondary,
+  boxShadow: "none !important",
 }));
 
 const DashBoard: React.FC = () => {
@@ -28,7 +29,7 @@ const DashBoard: React.FC = () => {
     <Box
       sx={{
         flexGrow: 1,
-        boxShadow: "0px 0px 0px 0px !important",
+        boxShadow: "none !important",
       }}
       className="dashboard-container"
     >

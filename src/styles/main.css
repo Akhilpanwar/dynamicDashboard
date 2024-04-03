@@ -94,19 +94,19 @@ padding: 7% 7%;
   color: white;
 
 
-  padding: 3% 3%; /* Adjust padding as needed */
-  border-radius: 10px; /* Add border radius if desired */
-  background-color: #313167; /* Optional background color */
+  padding: 3% 3%; 
+  border-radius: 10px;
+  background-color: #313167; 
 }
 .user-menu-icon {
-  width: 40px; /* Example width */
+  width: 40px;
 }
 .user-menu-container {
   position: absolute !important;
-  bottom: 50px !important; /* Adjust spacing as desired */
+  bottom: 50px !important; 
   left: 0;
   height: max-content !important;
-  width: 100%; /* Match sidebar width */
+  width: 100%;
 }
 
 .user-menu-container :hover {

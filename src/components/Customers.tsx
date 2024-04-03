@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
-import { PieChart, Pie, Cell, Legend, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import Customerdata from "../data/customerdata.json";
 
 export default function Customers() {
@@ -62,6 +62,7 @@ export default function Customers() {
               dominantBaseline="middle"
               fontSize={30}
               fontWeight="bold"
+              transform="rotate(-60)"
             >
               {`${totalNew}%`}
             </text>
@@ -94,11 +95,11 @@ export default function Customers() {
               outerRadius={85}
               startAngle={90}
               endAngle={460}
+              offset={0}
             >
               {Customerdata.customerData.map((entry, index) => (
-                <Cell key={`cell-${index + 2}`} fill={entry.fill} />
+                <Cell key={`cell-${index + 2}`} />
               ))}
-              <Legend verticalAlign="bottom" height={36} />
             </Pie>
           </PieChart>
         </ResponsiveContainer>

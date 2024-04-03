@@ -62,7 +62,6 @@ export default function Customers() {
               dominantBaseline="middle"
               fontSize={30}
               fontWeight="bold"
-              transform="rotate(-60)"
             >
               {`${totalNew}%`}
             </text>

@@ -6,7 +6,6 @@ import Customerdata from "../data/customerdata.json";
 
 export default function Customers() {
   const [mobileView, setMobileView] = useState<boolean>(false);
-  const [activeStroke, setActiveStroke] = useState<number>(0);
 
   const [totalNew, setTotalNew] = useState(0);
 
@@ -28,23 +27,6 @@ export default function Customers() {
     }
   }, []);
 
-  const CustomTooltip = () => {
-    if (Customerdata.customerData && Customerdata.customerData.length) {
-      return (
-        <div
-          style={{
-            backgroundColor: "#fff",
-            padding: "5px",
-            border: "1px solid #ccc",
-          }}
-        >
-          <p>{`${Customerdata.customerData[activeStroke].name} : ${Customerdata.customerData[activeStroke].value}`}</p>
-        </div>
-      );
-    }
-
-    return null;
-  };
   return (
     <Box
       display="flex"
@@ -121,10 +103,6 @@ export default function Customers() {
               startAngle={90}
               endAngle={460}
               paddingAngle={0}
-              onClick={(e) => {
-                console.log("object", e.payload.id);
-                setActiveStroke(e.payload.id);
-              }}
             />
             <Pie
               data={[{ value: 1 }, { value: 2 }, { value: 3 }]}
@@ -136,12 +114,7 @@ export default function Customers() {
               startAngle={90}
               endAngle={460}
               paddingAngle={0}
-              onClick={(e) => {
-                console.log("object", e.payload.id);
-                setActiveStroke(e.payload.id);
-              }}
             />
-            <Tooltip content={<CustomTooltip />} />
           </PieChart>
         </ResponsiveContainer>
       </Box>

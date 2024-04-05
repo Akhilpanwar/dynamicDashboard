@@ -39,9 +39,8 @@ const ProSideBar: React.FC = () => {
               var IconComponent = iconMap[val.icon];
 
               return (
-                <div>
+                <div key={val.id}>
                   <MenuItem
-                    key={val.id}
                     className={
                       val.id === isActive ? "sub-Menu-active" : `sub-Menu`
                     }

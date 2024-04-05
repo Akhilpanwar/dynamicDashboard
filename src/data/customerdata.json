@@ -1,40 +1,53 @@
 {
-  "customerData":[
-  
-        {
-          "name": "satish",
-          "type":"old",
-          "value": 40,
-          "strokeWidth":0,
-         "stroke":"#f0effb",
-          "fill":"#f0effb",
-           "cornerRadius":0,
-           "startAngle":12
+  "customerData": [
+    {
+      "id": 0,
+      "name": "satish",
+      "type": "old",
+      "value": 37,
+      "strokeWidth": 0,
+      "stroke": "#f0effb",
+      "fill": "#f0effb",
+      "cornerRadius": 0,
 
-      
-        },
-        {
-          "name": "sumit",
-          "type":"new",
-          "value":45,
-          "strokeWidth": 15,
-          "fill": "#4e34e3",
-          "stroke":"#4e34e3",
-          "cornerRadius":0,
-          "startAngle":12
-         
-       
-        },    {
-          "name": "sunny",
-          "type":"new",
-          "value": 20,
-          "strokeWidth": 25,
-          "fill":  "#d23b96",
-          "stroke":"#d23b96",
-            "cornerRadius":0,
-            "startAngle":0
-           
-          
-        }
-      ]
+      "percent": 35,
+      "allowDuplicatedCategory": true,
+      "middleRadius": 20,
+      "maxRadius": 1,
+      "cx": 120
+    },
+    {
+      "id": 1,
+      "name": "sumit",
+      "type": "new",
+      "value": 44,
+      "strokeWidth": 15,
+      "fill": "#4e34e3",
+      "stroke": "#4e34e3",
+      "cornerRadius": 0,
+      "cx": 120,
+
+      "percent": 30,
+      "allowDuplicatedCategory": true,
+      "middleRadius": 30,
+      "maxRadius": 1
+    },
+    {
+      "id": 2,
+      "name": "sunny",
+      "type": "new",
+      "value": 21,
+      "strokeWidth": 25,
+      "fill": "#d23b96",
+      "stroke": "#d23b96",
+      "cornerRadius": 0,
+
+      "percent": 35,
+      "allowDuplicatedCategory": true,
+      "middleRadius": 40,
+
+      "maxRadius": 1,
+      "cx": 12
+    }
+  ]
 }

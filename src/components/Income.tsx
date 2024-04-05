@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   BarChart,
   Bar,
@@ -9,10 +10,26 @@ import {
 } from "recharts";
 import earning from "../data/earning.json";
 import { Box, Typography, FormControl, MenuItem, Select } from "@mui/material";
-
+import { useLocation } from "react-router-dom";
 const Income = () => {
+  const location = useLocation();
+  const [mobileView, setMobileView] = useState<boolean>(false);
+
   const sortValue = "Quartly";
 
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (location) {
+      console.log("this", location);
+    }
+  }, [location]);
   return (
     <Box
       display="flex"
@@ -39,7 +56,6 @@ const Income = () => {
           <Select
             value={sortValue}
             sx={{
-              marginRight: "3rem",
               "& .MuiOutlinedInput-notchedOutline": {
                 border: "none",
               },
@@ -55,7 +71,7 @@ const Income = () => {
       </Box>
       <ResponsiveContainer
         width="100%"
-        height={300}
+        height={mobileView ? 200 : 300}
         style={{ top: 5, bottom: 5, left: 10, right: 10 }}
       >
         <BarChart data={earning.barData}>
@@ -69,17 +85,24 @@ const Income = () => {
             axisLine={false}
             tickLine={false}
             {...{
-              tick: { fontSize: 12, transform: "rotate(-60deg)" },
+              tick: {
+                fontSize: 10,
+                transform: "rotate(-60deg)",
+              },
               tickAngle: -60,
             }}
           />
           <YAxis hide={true} />
-          <Bar dataKey="value" radius={[10, 10, 10, 10]}>
-            <Cell key="cell-0" fill="#f1effe" />
+          <Bar
+            dataKey="value"
+            className="bar-view"
+            radius={mobileView ? [5, 5, 5, 5] : [10, 10, 10, 10]}
+          >
             {earning.barData.map((val, index) => (
               <Cell
                 key={`cell-${index + 1}`}
                 fill={val.month === "Jul" ? "#5235e5" : "#f1effe"}
+                fontSize={20}
               />
             ))}
           </Bar>

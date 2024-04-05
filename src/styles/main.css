@@ -174,7 +174,6 @@ padding: 7% 7%;
   align-items: center;
 }
 
-
 @media screen and (max-width: 1065px) {
  
   .collapsed-side-container {
@@ -207,13 +206,13 @@ padding: 7% 7%;
   }
   .dashboard-items {
     padding: .5rem  !important;
+   
   }
  
   .shaded-icon {
     width: 10rem;
-    height: 4rem;
+    height: 8rem;
   }
-
   .sub-Menu :hover {
     background-color:  #313167!important;
    border-radius: 6px;
@@ -246,3 +245,7 @@ padding: 7% 7%;
 }
 
 
+.pie-chart-container .recharts-wrapper .recharts-surface {
+  border: 2px solid black !important; /* Set the border to white */
+  border-radius: 50%; /* Make sure the border is rounded */
+}

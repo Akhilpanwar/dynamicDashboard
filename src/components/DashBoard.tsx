@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -20,11 +20,21 @@ const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: "center",
+  background: "#fbfbfb",
   color: theme.palette.text.secondary,
   boxShadow: "none !important",
 }));
 
 const DashBoard: React.FC = () => {
+  const [mobileView, setMobileView] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, []);
   return (
     <Box
       sx={{
@@ -43,8 +53,8 @@ const DashBoard: React.FC = () => {
           <Grid item xs={12} sm={6} md={3} key={val.id}>
             <Item className="dashboard-items">
               <Box
-                height={90}
-                width={120}
+                height={mobileView ? 140 : 90}
+                width={mobileView ? 240 : 120}
                 display="flex"
                 alignItems="center"
                 style={{ boxShadow: "0px 0px 0px 0px !important" }}

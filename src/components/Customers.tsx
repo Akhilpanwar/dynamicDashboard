@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Box, Typography } from "@mui/material";
 
-import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { PieChart, Pie, Tooltip, ResponsiveContainer } from "recharts";
 import Customerdata from "../data/customerdata.json";
 
 export default function Customers() {
+  const [mobileView, setMobileView] = useState<boolean>(false);
+  const [activeStroke, setActiveStroke] = useState<number>(0);
+
   const [totalNew, setTotalNew] = useState(0);
 
   useEffect(() => {
@@ -17,6 +20,31 @@ export default function Customers() {
     setTotalNew(newTotal);
   }, []);
 
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setMobileView(true);
+    } else {
+      setMobileView(false);
+    }
+  }, []);
+
+  const CustomTooltip = () => {
+    if (Customerdata.customerData && Customerdata.customerData.length) {
+      return (
+        <div
+          style={{
+            backgroundColor: "#fff",
+            padding: "5px",
+            border: "1px solid #ccc",
+          }}
+        >
+          <p>{`${Customerdata.customerData[activeStroke].name} : ${Customerdata.customerData[activeStroke].value}`}</p>
+        </div>
+      );
+    }
+
+    return null;
+  };
   return (
     <Box
       display="flex"
@@ -24,14 +52,12 @@ export default function Customers() {
       alignItems="center"
       sx={{ borderRadius: 4 }}
       p={1}
-      className="dashboard-container"
     >
       <Box
         display="flex"
         justifyContent="space-between"
         width="100%"
         height="80%"
-        px={2}
       >
         <Box display="flex" flexDirection="column" alignItems="self-start">
           <Typography
@@ -52,7 +78,7 @@ export default function Customers() {
           </Typography>
         </Box>
       </Box>
-      <Box width="100%" height={300} px={2}>
+      <Box width="100%" height={mobileView ? 250 : 300} px={1}>
         <ResponsiveContainer>
           <PieChart>
             <text
@@ -94,12 +120,28 @@ export default function Customers() {
               outerRadius={85}
               startAngle={90}
               endAngle={460}
-              offset={0}
-            >
-              {Customerdata.customerData.map((entry, index) => (
-                <Cell key={`cell-${index + 2}`} />
-              ))}
-            </Pie>
+              paddingAngle={0}
+              onClick={(e) => {
+                console.log("object", e.payload.id);
+                setActiveStroke(e.payload.id);
+              }}
+            />
+            <Pie
+              data={[{ value: 1 }, { value: 2 }, { value: 3 }]}
+              dataKey="value"
+              innerRadius={90}
+              outerRadius={110}
+              stroke="#FFFFFF"
+              fill="#FFFFFF"
+              startAngle={90}
+              endAngle={460}
+              paddingAngle={0}
+              onClick={(e) => {
+                console.log("object", e.payload.id);
+                setActiveStroke(e.payload.id);
+              }}
+            />
+            <Tooltip content={<CustomTooltip />} />
           </PieChart>
         </ResponsiveContainer>
       </Box>

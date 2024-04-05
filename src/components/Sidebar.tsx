@@ -7,7 +7,7 @@ import { LuUserSquare2 } from "react-icons/lu";
 import { MdOutlineLiveHelp, MdOutlineDashboard } from "react-icons/md";
 import { BiSolidOffer } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { Avatar } from "@mui/material";
+import { Avatar, Typography } from "@mui/material";
 
 const SideBar: React.FC = () => {
   const navigate = useNavigate();
@@ -33,20 +33,25 @@ const SideBar: React.FC = () => {
               var IconComponent = iconMap[val.icon];
 
               return (
-                <MenuItem
+                <div
                   key={val.id}
                   className={
                     val.id === isActive ? "sub-Menu-active" : `sub-Menu`
                   }
-                  icon={IconComponent && <IconComponent />}
                   onClick={() => {
                     setIsActive(val.id);
                     navigate(val.link);
                   }}
-                />
+                >
+                  <MenuItem icon={IconComponent && <IconComponent />} />
+                  <Typography color="white" textAlign="center">
+                    {val.element}
+                  </Typography>
+                </div>
               );
             })}
           </div>
+
           <MenuItem className="user-menu-container">
             <Avatar
               alt="Evano"
